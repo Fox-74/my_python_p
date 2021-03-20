@@ -1,1 +1,5 @@
-print("10 sec")
+#Коментарий
+#Идеально работающий код
+print("Hello World")
+a=input()
+print(a)
