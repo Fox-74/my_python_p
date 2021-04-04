@@ -1,10 +1,17 @@
 import sqlite3 as sq
+age = input("Введите возраст: ")
 connect = sq.connect("db.sqlite")
 cursor = connect.cursor()
-f = cursor.execute('''insert into users (f_name, l_name, age) values ('Иван', 'Сидоров', 22)''')
+f = cursor.execute('''SELECT f_name FROM users where age = (?)''', (age,)).fetchall()
+#t(f)
+#f = cursor.execute('''INSERT INTO users (f_name, l_name, age) values ('Иван', 'Сидоров', 22)''')
 connect.commit()
 #for i in f:
-print(f)
+if f != []:
+    for i in f:
+        print(i[0])
+else:
+    print("Таких нет")
 #connect.close()
 
 
